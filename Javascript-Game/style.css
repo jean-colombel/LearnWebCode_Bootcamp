@@ -1,0 +1,84 @@
+body {
+  font-family: sans-serif;
+}
+
+.progress {
+  border: 1px solid #c7c7c7;
+  border-right: none;
+  position: relative;
+}
+
+.boxes {
+  display: flex;
+  width: 100%;
+}
+
+.box {
+  height: 40px;
+  border-right: 1px solid #c7c7c7;
+  flex: 1;
+}
+
+.progress-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #7ecc00;
+  opacity: 0.57;
+  transform: scaleX(0);
+  transform-origin: center left;
+  transition: transform .4s ease-out;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left : 0;
+  background-color: rgba(255, 255, 255, 0.82);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .33s ease-out;
+  transform: scale(1.2);
+}
+
+.overlay-is-open .overlay {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.overlay-is-open .main-ui {
+  filter: blur(4px);
+}
+
+.main-ui {
+  text-align: center;
+}
+
+.main-ui .problem {
+  font-size: 48px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+@keyframes showError {
+  50% {
+    color: red;
+    transform: scale(1.2)
+  }
+
+  100% {
+    color: #333;
+    transform: scale(1)
+  }
+}
+
+.animate-wrong {
+  animation: .45s showError;
+}
